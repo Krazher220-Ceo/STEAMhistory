@@ -170,45 +170,51 @@ export default function EngineeringSlide() {
                 }}
               />
 
-              {/* Транспортная зона - Дороги (на уровне земли, более детальные) */}
+              {/* Транспортная зона - Дороги (ВМОНТИРОВАНЫ В ЗЕМЛЮ) */}
               {[
                 { angle: 0, length: 400 },
                 { angle: Math.PI / 2, length: 400 },
                 { angle: Math.PI / 4, length: 280 },
                 { angle: -Math.PI / 4, length: 280 }
-              ].map((road, i) => (
-                <div
-                  key={`road-${i}`}
-                  className="absolute"
-                  style={{
-                    width: `${road.length}px`,
-                    height: '28px',
-                    background: 'linear-gradient(90deg, #4b5563 0%, #6b7280 50%, #4b5563 100%)',
-                    transform: `translate(-50%, -50%) translate3d(0, ${groundLevel + 1}px, 0) rotateZ(${road.angle}rad)`,
-                    left: '50%',
-                    top: '50%',
-                    borderTop: '3px dashed #fbbf24',
-                    borderBottom: '3px dashed #fbbf24',
-                    transformStyle: 'preserve-3d',
-                    borderRadius: '3px',
-                    transformOrigin: 'center center',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
-                  }}
-                >
-                  {/* Разметка дороги */}
+              ].map((road, i) => {
+                const roadHeight = 25 // Высота дороги
+                // Центр дороги должен быть на groundLevel - roadHeight/2, чтобы верх был на groundLevel
+                const roadCenterY = groundLevel - roadHeight / 2
+                return (
                   <div
+                    key={`road-${i}`}
                     className="absolute"
                     style={{
-                      width: '100%',
-                      height: '2px',
-                      background: '#fbbf24',
+                      width: `${road.length}px`,
+                      height: `${roadHeight}px`,
+                      background: 'linear-gradient(90deg, #4b5563 0%, #6b7280 50%, #4b5563 100%)',
+                      transform: `translate(-50%, -50%) translate3d(0, ${roadCenterY}px, 0) rotateZ(${road.angle}rad)`,
+                      left: '50%',
                       top: '50%',
-                      transform: 'translateY(-50%)',
-                      opacity: 0.6
+                      borderTop: '3px dashed #fbbf24',
+                      borderBottom: '3px dashed #fbbf24',
+                      transformStyle: 'preserve-3d',
+                      borderRadius: '2px',
+                      transformOrigin: 'center center',
+                      boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2)',
+                      zIndex: 1 // Дороги поверх земли, но под зданиями
                     }}
-                  />
-                </div>
-              ))}
+                  >
+                    {/* Разметка дороги */}
+                    <div
+                      className="absolute"
+                      style={{
+                        width: '100%',
+                        height: '2px',
+                        background: '#fbbf24',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        opacity: 0.7
+                      }}
+                    />
+                  </div>
+                )
+              })}
 
               {/* Рекреационная зона - Парки (на уровне земли, более детальные) */}
               {cityElements.parks.map((park, i) => (
@@ -573,40 +579,47 @@ export default function EngineeringSlide() {
                 />
               </div>
 
-              {/* Транспорт - Автобусы на дорогах (более детальные) */}
-              {[...Array(3)].map((_, i) => (
-                <div
-                  key={`bus-${i}`}
-                  className="absolute"
-                  style={{
-                    width: '28px',
-                    height: '14px',
-                    background: 'linear-gradient(90deg, #f59e0b 0%, #d97706 100%)',
-                    transform: `translate(-50%, -50%) translate3d(${(i - 1) * 100}px, ${groundLevel + 3}px, 0)`,
-                    left: '50%',
-                    top: '50%',
-                    borderRadius: '4px',
-                    transformStyle: 'preserve-3d',
-                    boxShadow: '0 2px 6px rgba(0,0,0,0.3)'
-                  }}
-                >
-                  {/* Окна автобуса */}
+              {/* Транспорт - Автобусы на дорогах (на уровне дороги) */}
+              {[...Array(3)].map((_, i) => {
+                const roadHeight = 25
+                const roadCenterY = groundLevel - roadHeight / 2
+                // Автобусы на верхней поверхности дороги
+                const busY = roadCenterY + roadHeight / 2
+                return (
                   <div
-                    className="absolute w-2 h-2 bg-blue-200 rounded-sm"
+                    key={`bus-${i}`}
+                    className="absolute"
                     style={{
-                      left: '4px',
-                      top: '3px'
+                      width: '28px',
+                      height: '14px',
+                      background: 'linear-gradient(90deg, #f59e0b 0%, #d97706 100%)',
+                      transform: `translate(-50%, -50%) translate3d(${(i - 1) * 100}px, ${busY}px, 0)`,
+                      left: '50%',
+                      top: '50%',
+                      borderRadius: '4px',
+                      transformStyle: 'preserve-3d',
+                      boxShadow: '0 2px 6px rgba(0,0,0,0.3)',
+                      zIndex: 2 // Автобусы поверх дорог
                     }}
-                  />
-                  <div
-                    className="absolute w-2 h-2 bg-blue-200 rounded-sm"
-                    style={{
-                      right: '4px',
-                      top: '3px'
-                    }}
-                  />
-                </div>
-              ))}
+                  >
+                    {/* Окна автобуса */}
+                    <div
+                      className="absolute w-2 h-2 bg-blue-200 rounded-sm"
+                      style={{
+                        left: '4px',
+                        top: '3px'
+                      }}
+                    />
+                    <div
+                      className="absolute w-2 h-2 bg-blue-200 rounded-sm"
+                      style={{
+                        right: '4px',
+                        top: '3px'
+                      }}
+                    />
+                  </div>
+                )
+              })}
             </div>
           </div>
           <p className="text-center text-sm md:text-base text-gray-600 mt-4">
