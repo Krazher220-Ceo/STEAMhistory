@@ -245,7 +245,7 @@ export async function POST(request: NextRequest) {
         if (result.success) {
           return NextResponse.json({
             imageUrl: result.imageUrl,
-            prompt: result.revisedPrompt || prompt,
+            prompt: ('revisedPrompt' in result && result.revisedPrompt) ? result.revisedPrompt : prompt,
             provider: result.provider
           })
         }
