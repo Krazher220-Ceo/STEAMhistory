@@ -1,0 +1,2147 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Казахский национальный университет имени аль-Фараби",
+        "Type": "Вуз",
+        "Year": "1970",
+        "Description": "Главный университет Казахстана, основан в 1934, в 1970-х расширен и построен главный кампус",
+        "City": "Алма-Ата",
+        "Source": "https://kk.wikipedia.org/wiki/ҚазҰУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9458,
+          43.2363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Казахский национальный технический университет имени К.И. Сатпаева",
+        "Type": "Вуз",
+        "Year": "1975",
+        "Description": "Крупнейший технический вуз, в 1970-х построены новые корпуса",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/КазНТУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8512,
+          43.222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Казахский национальный медицинский университет имени С.Д. Асфендиярова",
+        "Type": "Вуз",
+        "Year": "1972",
+        "Description": "Медицинский вуз, в 1970-х расширен главный корпус",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/КазНМУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8897,
+          43.2389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Казахский государственный университет имени С.М. Кирова (ныне КазНУ)",
+        "Type": "Вуз",
+        "Year": "1978",
+        "Description": "Гуманитарный вуз, построен новый корпус в 1978 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/КазНУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.86,
+          43.22
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Карагандинский государственный университет имени Е.А. Букетова",
+        "Type": "Вуз",
+        "Year": "1972",
+        "Description": "Крупнейший вуз Караганды, построен главный корпус в 1972",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/КарГУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1049,
+          49.8014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Карагандинский государственный технический университет",
+        "Type": "Вуз",
+        "Year": "1975",
+        "Description": "Технический вуз, построен новый корпус в 1975",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/КарГТУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.11,
+          49.81
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Павлодарский государственный университет имени С. Торайгырова",
+        "Type": "Вуз",
+        "Year": "1970",
+        "Description": "Основан в 1960, в 1970-х построены новые корпуса",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/ПавГУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9733,
+          52.287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Костанайский государственный педагогический институт",
+        "Type": "Вуз",
+        "Year": "1974",
+        "Description": "Педагогический вуз, построен главный корпус в 1974",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Костанайский_пединститут"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.6246,
+          53.2144
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Казахский государственный академический театр драмы имени М.О. Ауэзова",
+        "Type": "Театр",
+        "Year": "1970",
+        "Description": "Главный драматический театр Казахстана, реконструирован в 1970-х",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Театр_Ауэзова"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95,
+          43.25
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Государственный академический театр оперы и балета имени Абая",
+        "Type": "Театр",
+        "Year": "1972",
+        "Description": "Оперный театр, построен новый зал в 1972",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Театр_оперы_и_балета_имени_Абая"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.94,
+          43.24
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Карагандинский областной драматический театр имени К.С. Станиславского",
+        "Type": "Театр",
+        "Year": "1975",
+        "Description": "Драматический театр, построен в 1975 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Карагандинский_театр"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Павлодарский областной драматический театр имени А.П. Чехова",
+        "Type": "Театр",
+        "Year": "1978",
+        "Description": "Драматический театр, построен в 1978 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Павлодарский_театр"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.97,
+          52.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Костанайский областной драматический театр",
+        "Type": "Театр",
+        "Year": "1976",
+        "Description": "Драматический театр, построен в 1976 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Костанайский_театр"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.62,
+          53.21
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Городская клиническая больница №1",
+        "Type": "Больница",
+        "Year": "1970",
+        "Description": "Крупнейшая больница Алма-Аты, построена в 1970 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9,
+          43.23
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Городская клиническая больница №7",
+        "Type": "Больница",
+        "Year": "1974",
+        "Description": "Больница, построена в 1974 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.88,
+          43.22
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Детская городская больница №2",
+        "Type": "Больница",
+        "Year": "1976",
+        "Description": "Детская больница, построена в 1976 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.92,
+          43.25
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Областная клиническая больница Караганды",
+        "Type": "Больница",
+        "Year": "1972",
+        "Description": "Главная больница области, построена в 1972",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.11,
+          49.81
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Городская больница №1 Караганды",
+        "Type": "Больница",
+        "Year": "1975",
+        "Description": "Городская больница, построена в 1975",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Детская областная больница Караганды",
+        "Type": "Больница",
+        "Year": "1978",
+        "Description": "Детская больница, построена в 1978",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.12,
+          49.82
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Областная больница Павлодара",
+        "Type": "Больница",
+        "Year": "1973",
+        "Description": "Главная больница области, построена в 1973",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.98,
+          52.29
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Городская больница Кокшетау",
+        "Type": "Больница",
+        "Year": "1977",
+        "Description": "Городская больница, построена в 1977",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Кокшетау"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.38,
+          53.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Областная больница Костаная",
+        "Type": "Больница",
+        "Year": "1974",
+        "Description": "Главная больница области, построена в 1974",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.63,
+          53.22
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Городская больница №2 Костаная",
+        "Type": "Больница",
+        "Year": "1979",
+        "Description": "Городская больница, построена в 1979",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.61,
+          53.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Городская больница №3 Алма-Аты",
+        "Type": "Больница",
+        "Year": "1977",
+        "Description": "Городская больница, построена в 1977 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.96,
+          43.26
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Поликлиника №5 Караганды",
+        "Type": "Больница",
+        "Year": "1979",
+        "Description": "Поликлиника, построена в 1979 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Больницы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.09,
+          49.79
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №1 имени Абая",
+        "Type": "Школа",
+        "Year": "1970",
+        "Description": "Одна из старейших школ, реконструирована в 1970",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95,
+          43.24
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №5",
+        "Type": "Школа",
+        "Year": "1971",
+        "Description": "Школа, построена в 1971 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.94,
+          43.23
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №12",
+        "Type": "Школа",
+        "Year": "1972",
+        "Description": "Школа, построена в 1972 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.96,
+          43.25
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №18",
+        "Type": "Школа",
+        "Year": "1973",
+        "Description": "Школа, построена в 1973 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.93,
+          43.22
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №25",
+        "Type": "Школа",
+        "Year": "1974",
+        "Description": "Школа, построена в 1974 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.97,
+          43.26
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №32",
+        "Type": "Школа",
+        "Year": "1975",
+        "Description": "Школа, построена в 1975 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.92,
+          43.21
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №38",
+        "Type": "Школа",
+        "Year": "1976",
+        "Description": "Школа, построена в 1976 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.98,
+          43.27
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №45",
+        "Type": "Школа",
+        "Year": "1977",
+        "Description": "Школа, построена в 1977 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.91,
+          43.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №52",
+        "Type": "Школа",
+        "Year": "1978",
+        "Description": "Школа, построена в 1978 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.99,
+          43.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №60",
+        "Type": "Школа",
+        "Year": "1979",
+        "Description": "Школа, построена в 1979 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9,
+          43.19
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №1 Караганды",
+        "Type": "Школа",
+        "Year": "1970",
+        "Description": "Главная школа города, реконструирована в 1970",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №5 Караганды",
+        "Type": "Школа",
+        "Year": "1971",
+        "Description": "Школа, построена в 1971 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.11,
+          49.81
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №12 Караганды",
+        "Type": "Школа",
+        "Year": "1972",
+        "Description": "Школа, построена в 1972 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.09,
+          49.79
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №18 Караганды",
+        "Type": "Школа",
+        "Year": "1973",
+        "Description": "Школа, построена в 1973 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.12,
+          49.82
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №25 Караганды",
+        "Type": "Школа",
+        "Year": "1974",
+        "Description": "Школа, построена в 1974 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №32 Караганды",
+        "Type": "Школа",
+        "Year": "1975",
+        "Description": "Школа, построена в 1975 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.11,
+          49.81
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №38 Караганды",
+        "Type": "Школа",
+        "Year": "1976",
+        "Description": "Школа, построена в 1976 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.09,
+          49.79
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №45 Караганды",
+        "Type": "Школа",
+        "Year": "1977",
+        "Description": "Школа, построена в 1977 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.12,
+          49.82
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №52 Караганды",
+        "Type": "Школа",
+        "Year": "1978",
+        "Description": "Школа, построена в 1978 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №60 Караганды",
+        "Type": "Школа",
+        "Year": "1979",
+        "Description": "Школа, построена в 1979 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.11,
+          49.81
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №1 Павлодара",
+        "Type": "Школа",
+        "Year": "1970",
+        "Description": "Главная школа города, реконструирована в 1970",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.97,
+          52.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №5 Павлодара",
+        "Type": "Школа",
+        "Year": "1971",
+        "Description": "Школа, построена в 1971 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.98,
+          52.29
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №12 Павлодара",
+        "Type": "Школа",
+        "Year": "1972",
+        "Description": "Школа, построена в 1972 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.96,
+          52.27
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №18 Павлодара",
+        "Type": "Школа",
+        "Year": "1973",
+        "Description": "Школа, построена в 1973 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.99,
+          52.3
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №25 Павлодара",
+        "Type": "Школа",
+        "Year": "1974",
+        "Description": "Школа, построена в 1974 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.97,
+          52.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №32 Павлодара",
+        "Type": "Школа",
+        "Year": "1975",
+        "Description": "Школа, построена в 1975 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.98,
+          52.29
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №38 Павлодара",
+        "Type": "Школа",
+        "Year": "1976",
+        "Description": "Школа, построена в 1976 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.96,
+          52.27
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №45 Павлодара",
+        "Type": "Школа",
+        "Year": "1977",
+        "Description": "Школа, построена в 1977 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.99,
+          52.3
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №52 Павлодара",
+        "Type": "Школа",
+        "Year": "1978",
+        "Description": "Школа, построена в 1978 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.97,
+          52.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №1 Кокшетау",
+        "Type": "Школа",
+        "Year": "1970",
+        "Description": "Главная школа города, реконструирована в 1970",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Кокшетау"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.38,
+          53.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №5 Кокшетау",
+        "Type": "Школа",
+        "Year": "1971",
+        "Description": "Школа, построена в 1971 году",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Кокшетау"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.39,
+          53.29
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №12 Кокшетау",
+        "Type": "Школа",
+        "Year": "1972",
+        "Description": "Школа, построена в 1972 году",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Кокшетау"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.37,
+          53.27
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №18 Кокшетау",
+        "Type": "Школа",
+        "Year": "1973",
+        "Description": "Школа, построена в 1973 году",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Кокшетау"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.4,
+          53.3
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №25 Кокшетау",
+        "Type": "Школа",
+        "Year": "1974",
+        "Description": "Школа, построена в 1974 году",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Кокшетау"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.38,
+          53.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №1 Костаная",
+        "Type": "Школа",
+        "Year": "1970",
+        "Description": "Главная школа города, реконструирована в 1970",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.62,
+          53.21
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №5 Костаная",
+        "Type": "Школа",
+        "Year": "1971",
+        "Description": "Школа, построена в 1971 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.63,
+          53.22
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №12 Костаная",
+        "Type": "Школа",
+        "Year": "1972",
+        "Description": "Школа, построена в 1972 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.61,
+          53.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №18 Костаная",
+        "Type": "Школа",
+        "Year": "1973",
+        "Description": "Школа, построена в 1973 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.64,
+          53.23
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №25 Костаная",
+        "Type": "Школа",
+        "Year": "1974",
+        "Description": "Школа, построена в 1974 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.62,
+          53.21
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №32 Костаная",
+        "Type": "Школа",
+        "Year": "1975",
+        "Description": "Школа, построена в 1975 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.63,
+          53.22
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №38 Костаная",
+        "Type": "Школа",
+        "Year": "1976",
+        "Description": "Школа, построена в 1976 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.61,
+          53.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №45 Костаная",
+        "Type": "Школа",
+        "Year": "1977",
+        "Description": "Школа, построена в 1977 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.64,
+          53.23
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №52 Костаная",
+        "Type": "Школа",
+        "Year": "1978",
+        "Description": "Школа, построена в 1978 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.62,
+          53.21
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №60 Костаная",
+        "Type": "Школа",
+        "Year": "1979",
+        "Description": "Школа, построена в 1979 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.63,
+          53.22
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дворец культуры имени Ленина",
+        "Type": "Дом культуры",
+        "Year": "1970",
+        "Description": "Главный дворец культуры Алма-Аты, построен в 1970-х",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8897,
+          43.2389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры железнодорожников",
+        "Type": "Дом культуры",
+        "Year": "1975",
+        "Description": "Дом культуры, построен в 1975 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9,
+          43.24
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры имени Горького",
+        "Type": "Дом культуры",
+        "Year": "1972",
+        "Description": "Дом культуры, построен в 1972 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры шахтёров",
+        "Type": "Дом культуры",
+        "Year": "1976",
+        "Description": "Дом культуры, построен в 1976 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.11,
+          49.81
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры Павлодара",
+        "Type": "Дом культуры",
+        "Year": "1974",
+        "Description": "Главный дом культуры города, построен в 1974",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.97,
+          52.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры Кокшетау",
+        "Type": "Дом культуры",
+        "Year": "1977",
+        "Description": "Дом культуры, построен в 1977 году",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Кокшетау"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.38,
+          53.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры Костаная",
+        "Type": "Дом культуры",
+        "Year": "1978",
+        "Description": "Дом культуры, построен в 1978 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.62,
+          53.21
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры имени Маяковского",
+        "Type": "Дом культуры",
+        "Year": "1973",
+        "Description": "Дом культуры, построен в 1973 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.88,
+          43.23
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Центральный государственный музей Республики Казахстан",
+        "Type": "Музей",
+        "Year": "1970",
+        "Description": "Главный музей страны, реконструирован в 1970-х",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Центральный_музей_Казахстана"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95,
+          43.25
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Музей народных музыкальных инструментов имени Ыхласа",
+        "Type": "Музей",
+        "Year": "1975",
+        "Description": "Музей музыкальных инструментов, построен в 1975",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Музеи_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.94,
+          43.24
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Карагандинский областной историко-краеведческий музей",
+        "Type": "Музей",
+        "Year": "1972",
+        "Description": "Краеведческий музей, построен в 1972 году",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Музеи_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Павлодарский областной историко-краеведческий музей",
+        "Type": "Музей",
+        "Year": "1976",
+        "Description": "Краеведческий музей, построен в 1976 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Музеи_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.97,
+          52.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Кокшетауский областной краеведческий музей",
+        "Type": "Музей",
+        "Year": "1978",
+        "Description": "Краеведческий музей, построен в 1978 году",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/Музеи_Кокшетау"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.38,
+          53.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Костанайский областной историко-краеведческий музей",
+        "Type": "Музей",
+        "Year": "1974",
+        "Description": "Краеведческий музей, построен в 1974 году",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Музеи_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.62,
+          53.21
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Спортивный комплекс Медеу",
+        "Type": "Спорткомплекс",
+        "Year": "1972",
+        "Description": "Знаменитый высокогорный каток, построен в 1972",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Медеу"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.0625,
+          43.1583
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Спортивный комплекс Динамо",
+        "Type": "Спорткомплекс",
+        "Year": "1975",
+        "Description": "Спорткомплекс, построен в 1975 году",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Спорткомплексы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9,
+          43.24
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Спортивный комплекс Караганды",
+        "Type": "Спорткомплекс",
+        "Year": "1978",
+        "Description": "Главный спорткомплекс города, построен в 1978",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Спорткомплексы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Спортивный комплекс Павлодара",
+        "Type": "Спорткомплекс",
+        "Year": "1976",
+        "Description": "Спорткомплекс, построен в 1976 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Спорткомплексы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.97,
+          52.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Средняя школа №60 Павлодара",
+        "Type": "Школа",
+        "Year": "1979",
+        "Description": "Школа, построена в 1979 году",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Школы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.98,
+          52.29
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Казахский государственный женский педагогический университет",
+        "Type": "Вуз",
+        "Year": "1974",
+        "Description": "Педагогический вуз для женщин, построен в 1974",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/ЖенПИ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.92,
+          43.23
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Казахский национальный аграрный университет",
+        "Type": "Вуз",
+        "Year": "1976",
+        "Description": "Аграрный вуз, построен новый корпус в 1976",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/КазНАУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.89,
+          43.21
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Казахский университет международных отношений и мировых языков",
+        "Type": "Вуз",
+        "Year": "1978",
+        "Description": "Лингвистический вуз, построен в 1978",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/КазУМОиМЯ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.955,
+          43.245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Карагандинский медицинский университет",
+        "Type": "Вуз",
+        "Year": "1973",
+        "Description": "Медицинский вуз, построен в 1973",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/КарМУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.105,
+          49.805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Карагандинский экономический университет",
+        "Type": "Вуз",
+        "Year": "1977",
+        "Description": "Экономический вуз, построен в 1977",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/КарЭУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Кокшетауский государственный университет имени Ш. Уалиханова",
+        "Type": "Вуз",
+        "Year": "1975",
+        "Description": "Университет, построен в 1975",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/КокГУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.385,
+          53.285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Костанайский государственный университет имени А. Байтурсынова",
+        "Type": "Вуз",
+        "Year": "1976",
+        "Description": "Университет, построен в 1976",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/КГУ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.625,
+          53.215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Русский театр драмы имени М.Ю. Лермонтова",
+        "Type": "Театр",
+        "Year": "1974",
+        "Description": "Русский драматический театр, построен в 1974",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Театр_Лермонтова"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.945,
+          43.235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Театр для детей и юношества имени Н. Сац",
+        "Type": "Театр",
+        "Year": "1977",
+        "Description": "Детский театр, построен в 1977",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Театр_Сац"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.935,
+          43.245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Карагандинский театр музыкальной комедии",
+        "Type": "Театр",
+        "Year": "1979",
+        "Description": "Театр музыкальной комедии, построен в 1979",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Театры_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.11,
+          49.805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Кокшетауский областной театр",
+        "Type": "Театр",
+        "Year": "1973",
+        "Description": "Областной театр, построен в 1973",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/Театры_Кокшетау"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.38,
+          53.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Костанайский театр кукол",
+        "Type": "Театр",
+        "Year": "1975",
+        "Description": "Театр кукол, построен в 1975",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Театры_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.62,
+          53.21
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дворец культуры имени Абая",
+        "Type": "Дом культуры",
+        "Year": "1971",
+        "Description": "Дворец культуры, построен в 1971",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.96,
+          43.25
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры строителей",
+        "Type": "Дом культуры",
+        "Year": "1974",
+        "Description": "Дом культуры, построен в 1974",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.91,
+          43.22
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры энергетиков",
+        "Type": "Дом культуры",
+        "Year": "1976",
+        "Description": "Дом культуры, построен в 1976",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.93,
+          43.24
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дворец культуры имени Ленина Караганды",
+        "Type": "Дом культуры",
+        "Year": "1971",
+        "Description": "Главный дворец культуры, построен в 1971",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры молодёжи Караганды",
+        "Type": "Дом культуры",
+        "Year": "1978",
+        "Description": "Дом культуры, построен в 1978",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.11,
+          49.81
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры имени Пушкина Павлодара",
+        "Type": "Дом культуры",
+        "Year": "1975",
+        "Description": "Дом культуры, построен в 1975",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.975,
+          52.285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры Кокшетау",
+        "Type": "Дом культуры",
+        "Year": "1972",
+        "Description": "Дом культуры, построен в 1972",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Кокшетау"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.375,
+          53.275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дом культуры имени Горького Костаная",
+        "Type": "Дом культуры",
+        "Year": "1976",
+        "Description": "Дом культуры, построен в 1976",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Дворцы_культуры_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.625,
+          53.215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Государственный музей искусств имени А. Кастеева",
+        "Type": "Музей",
+        "Year": "1976",
+        "Description": "Музей изобразительных искусств, построен в 1976",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Музей_Кастеева"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95,
+          43.245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Музей истории Алматы",
+        "Type": "Музей",
+        "Year": "1972",
+        "Description": "Исторический музей города, построен в 1972",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Музеи_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.94,
+          43.235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Литературно-мемориальный музейный комплекс Абая",
+        "Type": "Музей",
+        "Year": "1974",
+        "Description": "Мемориальный музей, построен в 1974",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Музеи_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.945,
+          43.24
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Музей истории Караганды",
+        "Type": "Музей",
+        "Year": "1975",
+        "Description": "Исторический музей, построен в 1975",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Музеи_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Музей истории Павлодара",
+        "Type": "Музей",
+        "Year": "1977",
+        "Description": "Исторический музей, построен в 1977",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Музеи_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.97,
+          52.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Дворец спорта имени Балуана Шолака",
+        "Type": "Спорткомплекс",
+        "Year": "1974",
+        "Description": "Дворец спорта, построен в 1974",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Дворец_Шолака"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.945,
+          43.255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Спортивный комплекс ЦСКА",
+        "Type": "Спорткомплекс",
+        "Year": "1977",
+        "Description": "Спорткомплекс, построен в 1977",
+        "City": "Алма-Ата",
+        "Source": "https://ru.wikipedia.org/wiki/Спорткомплексы_Алматы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.92,
+          43.23
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Спортивный комплекс Шахтёр",
+        "Type": "Спорткомплекс",
+        "Year": "1975",
+        "Description": "Спорткомплекс, построен в 1975",
+        "City": "Караганда",
+        "Source": "https://ru.wikipedia.org/wiki/Спорткомплексы_Караганды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1,
+          49.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Спортивный комплекс Трактор",
+        "Type": "Спорткомплекс",
+        "Year": "1973",
+        "Description": "Спорткомплекс, построен в 1973",
+        "City": "Павлодар",
+        "Source": "https://ru.wikipedia.org/wiki/Спорткомплексы_Павлодара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.97,
+          52.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Спортивный комплекс Кокшетау",
+        "Type": "Спорткомплекс",
+        "Year": "1979",
+        "Description": "Спорткомплекс, построен в 1979",
+        "City": "Кокшетау",
+        "Source": "https://ru.wikipedia.org/wiki/Спорткомплексы_Кокшетау"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.38,
+          53.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Спортивный комплекс Костаная",
+        "Type": "Спорткомплекс",
+        "Year": "1977",
+        "Description": "Спорткомплекс, построен в 1977",
+        "City": "Костанай",
+        "Source": "https://ru.wikipedia.org/wiki/Спорткомплексы_Костаная"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.62,
+          53.21
+        ]
+      }
+    }
+  ]
+}
