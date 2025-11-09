@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts'
 
 const zoneData = [
@@ -10,6 +10,9 @@ const zoneData = [
   { name: 'Рекреационная', value: 15, color: '#10b981' },
   { name: 'Административная', value: 10, color: '#8b5cf6' },
 ]
+
+// Фиксированные высоты для домов (чтобы не менялись при каждом рендере)
+const residentialHeights = [90, 100, 85, 95, 110, 88]
 
 export default function EngineeringSlide() {
   const [rotation, setRotation] = useState({ x: -20, y: 45 })
@@ -49,6 +52,42 @@ export default function EngineeringSlide() {
     setLastMousePos({ x: e.clientX, y: e.clientY })
   }
 
+  // Мемоизируем позиции элементов для стабильности
+  const cityElements = useMemo(() => {
+    // Жилая зона - позиции домов
+    const residential = [...Array(6)].map((_, i) => {
+      const angle = (i / 6) * Math.PI * 2
+      const radius = 150
+      return {
+        x: Math.cos(angle) * radius,
+        z: Math.sin(angle) * radius,
+        height: residentialHeights[i]
+      }
+    })
+
+    // Промышленная зона
+    const industrial = [...Array(3)].map((_, i) => {
+      const angle = (i / 3) * Math.PI * 2 + Math.PI
+      const radius = 200
+      return {
+        x: Math.cos(angle) * radius,
+        z: Math.sin(angle) * radius
+      }
+    })
+
+    // Рекреационная зона
+    const parks = [...Array(4)].map((_, i) => {
+      const angle = (i / 4) * Math.PI * 2 + Math.PI / 4
+      const radius = 120
+      return {
+        x: Math.cos(angle) * radius,
+        z: Math.sin(angle) * radius
+      }
+    })
+
+    return { residential, industrial, parks }
+  }, [])
+
   return (
     <div>
       <div className="border-b-4 border-blue-500 pb-4 md:pb-6 mb-6 md:mb-8">
@@ -70,14 +109,16 @@ export default function EngineeringSlide() {
           🏗️ 3D Визуализация "Город будущего 1985"
         </h3>
         <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-4 md:p-8 rounded-xl border-2 border-gray-300 mb-4">
-          <div className="relative w-full h-[400px] md:h-[600px] perspective-1000">
+          <div className="relative w-full h-[400px] md:h-[600px]" style={{ perspective: '1000px', perspectiveOrigin: 'center center' }}>
             <div
-              className="absolute inset-0 preserve-3d"
+              className="absolute inset-0"
               style={{
                 transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
                 transformStyle: 'preserve-3d',
                 transition: isDragging ? 'none' : 'transform 0.1s ease-out',
-                cursor: isDragging ? 'grabbing' : 'grab'
+                cursor: isDragging ? 'grabbing' : 'grab',
+                width: '100%',
+                height: '100%'
               }}
               onMouseDown={handleMouseDown}
             >
@@ -92,83 +133,12 @@ export default function EngineeringSlide() {
                   left: '50%',
                   top: '50%',
                   borderRadius: '20px',
-                  boxShadow: '0 20px 60px rgba(0,0,0,0.3)'
+                  boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+                  transformStyle: 'preserve-3d'
                 }}
               />
 
-              {/* Жилая зона - Панельные дома */}
-              {[...Array(6)].map((_, i) => {
-                const angle = (i / 6) * Math.PI * 2
-                const radius = 150
-                const x = Math.cos(angle) * radius
-                const z = Math.sin(angle) * radius
-                const height = 80 + Math.random() * 40
-                return (
-                  <div
-                    key={`residential-${i}`}
-                    className="absolute"
-                    style={{
-                      width: '40px',
-                      height: `${height}px`,
-                      background: 'linear-gradient(180deg, #3b82f6 0%, #2563eb 100%)',
-                      transform: `translate(-50%, -50%) translate3d(${x}px, -${height/2}px, ${z}px)`,
-                      left: '50%',
-                      top: '50%',
-                      boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                      borderRadius: '4px 4px 0 0'
-                    }}
-                  >
-                    {/* Окна */}
-                    {[...Array(Math.floor(height / 20))].map((_, j) => (
-                      <div
-                        key={`window-${j}`}
-                        className="absolute w-3 h-3 bg-yellow-300 rounded-sm"
-                        style={{
-                          left: '6px',
-                          top: `${10 + j * 20}px`,
-                          boxShadow: '0 0 5px rgba(255,255,0,0.5)'
-                        }}
-                      />
-                    ))}
-                  </div>
-                )
-              })}
-
-              {/* Промышленная зона */}
-              {[...Array(3)].map((_, i) => {
-                const angle = (i / 3) * Math.PI * 2 + Math.PI
-                const radius = 200
-                const x = Math.cos(angle) * radius
-                const z = Math.sin(angle) * radius
-                return (
-                  <div
-                    key={`industrial-${i}`}
-                    className="absolute"
-                    style={{
-                      width: '60px',
-                      height: '100px',
-                      background: 'linear-gradient(180deg, #ef4444 0%, #dc2626 100%)',
-                      transform: `translate(-50%, -50%) translate3d(${x}px, -50px, ${z}px)`,
-                      left: '50%',
-                      top: '50%',
-                      boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                      borderRadius: '4px 4px 0 0'
-                    }}
-                  >
-                    {/* Трубы */}
-                    <div
-                      className="absolute w-4 h-20 bg-gray-600 rounded-full"
-                      style={{
-                        left: '50%',
-                        top: '-20px',
-                        transform: 'translateX(-50%)'
-                      }}
-                    />
-                  </div>
-                )
-              })}
-
-              {/* Транспортная зона - Дороги */}
+              {/* Транспортная зона - Дороги (сначала, чтобы были под зданиями) */}
               {[
                 { angle: 0, length: 400 },
                 { angle: Math.PI / 2, length: 400 }
@@ -180,61 +150,120 @@ export default function EngineeringSlide() {
                     width: `${road.length}px`,
                     height: '30px',
                     background: 'linear-gradient(90deg, #4b5563 0%, #6b7280 50%, #4b5563 100%)',
-                    transform: `translate(-50%, -50%) translate3d(0, 0, 0) rotateZ(${road.angle}rad)`,
+                    transform: `translate(-50%, -50%) translate3d(0, 5px, 0) rotateZ(${road.angle}rad)`,
                     left: '50%',
                     top: '50%',
                     borderTop: '2px dashed #fbbf24',
-                    borderBottom: '2px dashed #fbbf24'
+                    borderBottom: '2px dashed #fbbf24',
+                    transformStyle: 'preserve-3d'
                   }}
                 />
               ))}
 
               {/* Рекреационная зона - Парки */}
-              {[...Array(4)].map((_, i) => {
-                const angle = (i / 4) * Math.PI * 2 + Math.PI / 4
-                const radius = 120
-                const x = Math.cos(angle) * radius
-                const z = Math.sin(angle) * radius
-                return (
+              {cityElements.parks.map((park, i) => (
+                <div
+                  key={`park-${i}`}
+                  className="absolute"
+                  style={{
+                    width: '80px',
+                    height: '80px',
+                    background: 'radial-gradient(circle, #10b981 0%, #059669 100%)',
+                    transform: `translate(-50%, -50%) translate3d(${park.x}px, 5px, ${park.z}px) rotateX(90deg)`,
+                    left: '50%',
+                    top: '50%',
+                    borderRadius: '50%',
+                    boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
+                    transformStyle: 'preserve-3d'
+                  }}
+                >
+                  {/* Деревья */}
+                  {[...Array(3)].map((_, j) => {
+                    const treeAngle = (j / 3) * Math.PI * 2
+                    const treeRadius = 25
+                    const treeX = Math.cos(treeAngle) * treeRadius
+                    const treeZ = Math.sin(treeAngle) * treeRadius
+                    return (
+                      <div
+                        key={`tree-${j}`}
+                        className="absolute"
+                        style={{
+                          width: '15px',
+                          height: '25px',
+                          background: '#166534',
+                          transform: `translate(-50%, -50%) translate3d(${treeX}px, -15px, ${treeZ}px)`,
+                          left: '50%',
+                          top: '50%',
+                          borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+                          transformStyle: 'preserve-3d'
+                        }}
+                      />
+                    )
+                  })}
+                </div>
+              ))}
+
+              {/* Жилая зона - Панельные дома */}
+              {cityElements.residential.map((house, i) => (
+                <div
+                  key={`residential-${i}`}
+                  className="absolute"
+                  style={{
+                    width: '40px',
+                    height: `${house.height}px`,
+                    background: 'linear-gradient(180deg, #3b82f6 0%, #2563eb 100%)',
+                    transform: `translate(-50%, -50%) translate3d(${house.x}px, -${house.height/2}px, ${house.z}px)`,
+                    left: '50%',
+                    top: '50%',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+                    borderRadius: '4px 4px 0 0',
+                    transformStyle: 'preserve-3d'
+                  }}
+                >
+                  {/* Окна */}
+                  {[...Array(Math.floor(house.height / 20))].map((_, j) => (
+                    <div
+                      key={`window-${j}`}
+                      className="absolute w-3 h-3 bg-yellow-300 rounded-sm"
+                      style={{
+                        left: '6px',
+                        top: `${10 + j * 20}px`,
+                        boxShadow: '0 0 5px rgba(255,255,0,0.5)'
+                      }}
+                    />
+                  ))}
+                </div>
+              ))}
+
+              {/* Промышленная зона */}
+              {cityElements.industrial.map((factory, i) => (
+                <div
+                  key={`industrial-${i}`}
+                  className="absolute"
+                  style={{
+                    width: '60px',
+                    height: '100px',
+                    background: 'linear-gradient(180deg, #ef4444 0%, #dc2626 100%)',
+                    transform: `translate(-50%, -50%) translate3d(${factory.x}px, -50px, ${factory.z}px)`,
+                    left: '50%',
+                    top: '50%',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+                    borderRadius: '4px 4px 0 0',
+                    transformStyle: 'preserve-3d'
+                  }}
+                >
+                  {/* Трубы */}
                   <div
-                    key={`park-${i}`}
-                    className="absolute"
+                    className="absolute w-4 h-20 bg-gray-600 rounded-full"
                     style={{
-                      width: '80px',
-                      height: '80px',
-                      background: 'radial-gradient(circle, #10b981 0%, #059669 100%)',
-                      transform: `translate(-50%, -50%) translate3d(${x}px, 0, ${z}px) rotateX(90deg)`,
                       left: '50%',
-                      top: '50%',
-                      borderRadius: '50%',
-                      boxShadow: '0 5px 15px rgba(0,0,0,0.2)'
+                      top: '-20px',
+                      transform: 'translateX(-50%)',
+                      transformStyle: 'preserve-3d'
                     }}
-                  >
-                    {/* Деревья */}
-                    {[...Array(3)].map((_, j) => {
-                      const treeAngle = (j / 3) * Math.PI * 2
-                      const treeRadius = 20
-                      const treeX = Math.cos(treeAngle) * treeRadius
-                      const treeZ = Math.sin(treeAngle) * treeRadius
-                      return (
-                        <div
-                          key={`tree-${j}`}
-                          className="absolute"
-                          style={{
-                            width: '15px',
-                            height: '25px',
-                            background: '#166534',
-                            transform: `translate(-50%, -50%) translate3d(${treeX}px, -10px, ${treeZ}px)`,
-                            left: '50%',
-                            top: '50%',
-                            borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'
-                          }}
-                        />
-                      )
-                    })}
-                  </div>
-                )
-              })}
+                  />
+                </div>
+              ))}
 
               {/* Административная зона - Центральное здание */}
               <div
@@ -247,7 +276,9 @@ export default function EngineeringSlide() {
                   left: '50%',
                   top: '50%',
                   boxShadow: '0 15px 40px rgba(0,0,0,0.4)',
-                  borderRadius: '8px 8px 0 0'
+                  borderRadius: '8px 8px 0 0',
+                  transformStyle: 'preserve-3d',
+                  zIndex: 10
                 }}
               >
                 {/* Колонны */}
@@ -273,17 +304,19 @@ export default function EngineeringSlide() {
                     width: '30px',
                     height: '15px',
                     background: '#f59e0b',
-                    transform: `translate(-50%, -50%) translate3d(${i * 100 - 50}px, 0, 0)`,
+                    transform: `translate(-50%, -50%) translate3d(${i * 100 - 50}px, 8px, 0)`,
                     left: '50%',
                     top: '50%',
                     borderRadius: '4px',
-                    animation: `moveBus${i} 3s linear infinite`
+                    transformStyle: 'preserve-3d',
+                    animation: `moveBus${i} 4s linear infinite`
                   }}
                 >
                   <style>{`
                     @keyframes moveBus${i} {
-                      0% { transform: translate(-50%, -50%) translate3d(${i * 100 - 50}px, 0, 0); }
-                      100% { transform: translate(-50%, -50%) translate3d(${i * 100 + 150}px, 0, 0); }
+                      0% { transform: translate(-50%, -50%) translate3d(${i * 100 - 50}px, 8px, 0); }
+                      50% { transform: translate(-50%, -50%) translate3d(${i * 100 + 50}px, 8px, 0); }
+                      100% { transform: translate(-50%, -50%) translate3d(${i * 100 - 50}px, 8px, 0); }
                     }
                   `}</style>
                 </div>
