@@ -43,6 +43,7 @@ export default function ArtSlide() {
   const [generatedImage, setGeneratedImage] = useState<string | null>(null)
   const [prompt, setPrompt] = useState('')
   const [provider, setProvider] = useState<string>('')
+  const [isPlaceholder, setIsPlaceholder] = useState(false)
 
   const generatePrompt = () => {
     const fullPrompt = `Soviet interior 1970s Kazakhstan. Cozy living room with ${furniture.toLowerCase()}, ${decor.toLowerCase()}, ${tech.toLowerCase()}. Person wearing ${clothes.toLowerCase()}. Warm colors: brown, orange, green, beige. Retro style, detailed, high quality, photorealistic, family atmosphere, Soviet lifestyle.`
@@ -52,6 +53,8 @@ export default function ArtSlide() {
 
   const generateImage = async () => {
     setGenerating(true)
+    setGeneratedImage(null)
+    setIsPlaceholder(false)
     const imagePrompt = generatePrompt()
     
     try {
@@ -60,7 +63,13 @@ export default function ArtSlide() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ prompt: imagePrompt }),
+        body: JSON.stringify({ 
+          prompt: imagePrompt,
+          furniture,
+          decor,
+          tech,
+          clothes
+        }),
       })
 
       const data = await response.json()
@@ -69,21 +78,57 @@ export default function ArtSlide() {
         setGeneratedImage(data.imageUrl)
         setPrompt(data.prompt || imagePrompt)
         setProvider(data.provider || 'Unknown')
+        setIsPlaceholder(data.isPlaceholder || false)
+        
+        if (data.message) {
+          // Показываем информационное сообщение для placeholder
+          console.log(data.message)
+        }
       } else if (data.error) {
         setGeneratedImage(null)
         setPrompt(imagePrompt)
-        alert(`Ошибка: ${data.error}. Используйте промпт вручную.`)
+        // Не показываем alert, просто показываем placeholder
+        generatePlaceholderFallback()
       } else {
-        setGeneratedImage(null)
-        setPrompt(imagePrompt)
+        // Если нет изображения, генерируем placeholder
+        generatePlaceholderFallback()
       }
     } catch (error) {
       console.error('Ошибка генерации:', error)
-      setGeneratedImage(null)
-      setPrompt(imagePrompt)
+      // При ошибке показываем placeholder
+      generatePlaceholderFallback()
     } finally {
       setGenerating(false)
     }
+  }
+
+  const generatePlaceholderFallback = () => {
+    // Генерируем placeholder через API
+    const imagePrompt = generatePrompt()
+    fetch('/api/generate-image', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        prompt: imagePrompt,
+        furniture,
+        decor,
+        tech,
+        clothes
+      }),
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.imageUrl) {
+        setGeneratedImage(data.imageUrl)
+        setPrompt(data.prompt || imagePrompt)
+        setProvider(data.provider || 'Placeholder')
+        setIsPlaceholder(data.isPlaceholder || false)
+      } else {
+        setPrompt(imagePrompt)
+      }
+    })
   }
 
   return (
@@ -100,6 +145,14 @@ export default function ArtSlide() {
       <p className="text-xl text-gray-600 mb-8">
         Создание коллажа или иллюстрации интерьера, одежды и семейного быта
       </p>
+
+      {isPlaceholder && (
+        <div className="mb-4 p-4 bg-amber-50 border-2 border-amber-300 rounded-xl">
+          <p className="text-amber-800 font-semibold">
+            ℹ️ ИИ генерация недоступна. Показана иллюстрация на основе выбранных элементов.
+          </p>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <div>
@@ -171,8 +224,14 @@ export default function ArtSlide() {
               disabled={generating}
               className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 rounded-lg font-semibold text-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {generating ? '🎨 Генерация изображения...' : '🎨 Создать изображение с помощью ИИ'}
+              {generating ? '🎨 Генерация изображения...' : '🎨 Создать изображение'}
             </button>
+            
+            <p className="text-sm text-gray-500 text-center">
+              {generating 
+                ? 'Пробуем ИИ генерацию... Если не сработает, покажем иллюстрацию'
+                : 'Попробует ИИ генерацию, если недоступна - покажет готовую иллюстрацию'}
+            </p>
           </div>
         </div>
 
@@ -185,9 +244,7 @@ export default function ArtSlide() {
                 <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
                 <p className="text-lg text-gray-700">Генерация изображения...</p>
                 <p className="text-sm text-gray-500 mt-2">
-                  {provider?.includes('Local') 
-                    ? 'Используется локальная модель (может занять 1-3 минуты)'
-                    : 'Это может занять 10-30 секунд'}
+                  Пробуем ИИ генерацию...
                 </p>
               </div>
             </div>
@@ -197,7 +254,7 @@ export default function ArtSlide() {
             <div className="bg-white p-4 rounded-xl border-2 border-gray-200">
               {provider && (
                 <div className="mb-2 text-sm text-gray-600">
-                  <span className="font-semibold">Провайдер:</span> {provider}
+                  <span className="font-semibold">Источник:</span> {provider}
                 </div>
               )}
               <img 
@@ -205,17 +262,27 @@ export default function ArtSlide() {
                 alt="Сгенерированное изображение" 
                 className="w-full rounded-lg mb-4"
               />
-              <button
-                onClick={() => {
-                  const link = document.createElement('a')
-                  link.href = generatedImage
-                  link.download = 'my_house_1970s.png'
-                  link.click()
-                }}
-                className="w-full bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors"
-              >
-                📥 Скачать изображение
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    const link = document.createElement('a')
+                    link.href = generatedImage
+                    link.download = 'my_house_1970s.png'
+                    link.click()
+                  }}
+                  className="flex-1 bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors"
+                >
+                  📥 Скачать изображение
+                </button>
+                {isPlaceholder && (
+                  <button
+                    onClick={generateImage}
+                    className="flex-1 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
+                  >
+                    🔄 Попробовать ИИ снова
+                  </button>
+                )}
+              </div>
             </div>
           )}
 
