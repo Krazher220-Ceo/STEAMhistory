@@ -81,21 +81,17 @@ export default function ArtSlide() {
         setIsPlaceholder(data.isPlaceholder || false)
         
         if (data.message) {
-          // Показываем информационное сообщение для placeholder
           console.log(data.message)
         }
       } else if (data.error) {
         setGeneratedImage(null)
         setPrompt(imagePrompt)
-        // Не показываем alert, просто показываем placeholder
         generatePlaceholderFallback()
       } else {
-        // Если нет изображения, генерируем placeholder
         generatePlaceholderFallback()
       }
     } catch (error) {
       console.error('Ошибка генерации:', error)
-      // При ошибке показываем placeholder
       generatePlaceholderFallback()
     } finally {
       setGenerating(false)
@@ -103,7 +99,6 @@ export default function ArtSlide() {
   }
 
   const generatePlaceholderFallback = () => {
-    // Генерируем placeholder через API
     const imagePrompt = generatePrompt()
     fetch('/api/generate-image', {
       method: 'POST',
@@ -132,39 +127,39 @@ export default function ArtSlide() {
   }
 
   return (
-    <div>
-      <div className="border-b-4 border-blue-500 pb-6 mb-8">
-        <h2 className="text-4xl font-bold text-gray-800 mb-2">
+    <div className="w-full">
+      <div className="border-b-4 border-blue-500 pb-4 md:pb-6 mb-6 md:mb-8">
+        <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-2">
           🎨 Art - Мой дом в 1970-х
         </h2>
-        <span className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+        <span className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-semibold">
           10 баллов
         </span>
       </div>
 
-      <p className="text-xl text-gray-600 mb-8">
+      <p className="text-base md:text-xl text-gray-600 mb-6 md:mb-8">
         Создание коллажа или иллюстрации интерьера, одежды и семейного быта
       </p>
 
       {isPlaceholder && (
-        <div className="mb-4 p-4 bg-amber-50 border-2 border-amber-300 rounded-xl">
+        <div className="mb-4 p-3 md:p-4 bg-amber-50 border-2 border-amber-300 rounded-xl text-sm md:text-base">
           <p className="text-amber-800 font-semibold">
             ℹ️ ИИ генерация недоступна. Показана иллюстрация на основе выбранных элементов.
           </p>
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
         <div>
-          <h3 className="text-2xl font-bold text-gray-800 mb-6">Выберите элементы интерьера</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Выберите элементы интерьера</h3>
           
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             <div>
-              <label className="block text-lg font-semibold text-gray-700 mb-2">Мебель:</label>
+              <label className="block text-base md:text-lg font-semibold text-gray-700 mb-2">Мебель:</label>
               <select
                 value={furniture}
                 onChange={(e) => setFurniture(e.target.value)}
-                className="w-full p-3 border-2 border-blue-200 rounded-lg focus:border-blue-500 focus:outline-none"
+                className="w-full p-2 md:p-3 border-2 border-blue-200 rounded-lg focus:border-blue-500 focus:outline-none text-sm md:text-base"
               >
                 {furnitureOptions.map((option) => (
                   <option key={option} value={option}>
@@ -175,11 +170,11 @@ export default function ArtSlide() {
             </div>
 
             <div>
-              <label className="block text-lg font-semibold text-gray-700 mb-2">Декор:</label>
+              <label className="block text-base md:text-lg font-semibold text-gray-700 mb-2">Декор:</label>
               <select
                 value={decor}
                 onChange={(e) => setDecor(e.target.value)}
-                className="w-full p-3 border-2 border-purple-200 rounded-lg focus:border-purple-500 focus:outline-none"
+                className="w-full p-2 md:p-3 border-2 border-purple-200 rounded-lg focus:border-purple-500 focus:outline-none text-sm md:text-base"
               >
                 {decorOptions.map((option) => (
                   <option key={option} value={option}>
@@ -190,11 +185,11 @@ export default function ArtSlide() {
             </div>
 
             <div>
-              <label className="block text-lg font-semibold text-gray-700 mb-2">Техника:</label>
+              <label className="block text-base md:text-lg font-semibold text-gray-700 mb-2">Техника:</label>
               <select
                 value={tech}
                 onChange={(e) => setTech(e.target.value)}
-                className="w-full p-3 border-2 border-green-200 rounded-lg focus:border-green-500 focus:outline-none"
+                className="w-full p-2 md:p-3 border-2 border-green-200 rounded-lg focus:border-green-500 focus:outline-none text-sm md:text-base"
               >
                 {techOptions.map((option) => (
                   <option key={option} value={option}>
@@ -205,11 +200,11 @@ export default function ArtSlide() {
             </div>
 
             <div>
-              <label className="block text-lg font-semibold text-gray-700 mb-2">Одежда:</label>
+              <label className="block text-base md:text-lg font-semibold text-gray-700 mb-2">Одежда:</label>
               <select
                 value={clothes}
                 onChange={(e) => setClothes(e.target.value)}
-                className="w-full p-3 border-2 border-orange-200 rounded-lg focus:border-orange-500 focus:outline-none"
+                className="w-full p-2 md:p-3 border-2 border-orange-200 rounded-lg focus:border-orange-500 focus:outline-none text-sm md:text-base"
               >
                 {clothesOptions.map((option) => (
                   <option key={option} value={option}>
@@ -222,28 +217,28 @@ export default function ArtSlide() {
             <button
               onClick={generateImage}
               disabled={generating}
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 rounded-lg font-semibold text-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {generating ? '🎨 Генерация изображения...' : '🎨 Создать изображение'}
             </button>
             
-            <p className="text-sm text-gray-500 text-center">
+            <p className="text-xs md:text-sm text-gray-500 text-center">
               {generating 
-                ? 'Пробуем ИИ генерацию... Если не сработает, покажем иллюстрацию'
-                : 'Попробует ИИ генерацию, если недоступна - покажет готовую иллюстрацию'}
+                ? 'Пробуем ИИ генерацию... Если не сработает, покажем готовое изображение'
+                : 'Попробует ИИ генерацию, если недоступна - покажет готовое изображение'}
             </p>
           </div>
         </div>
 
         <div>
-          <h3 className="text-2xl font-bold text-gray-800 mb-6">🖼️ Результат</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">🖼️ Результат</h3>
           
           {generating && (
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-xl border-4 border-amber-200 min-h-[400px] flex items-center justify-center">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 md:p-8 rounded-xl border-4 border-amber-200 min-h-[300px] md:min-h-[400px] flex items-center justify-center">
               <div className="text-center">
-                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
-                <p className="text-lg text-gray-700">Генерация изображения...</p>
-                <p className="text-sm text-gray-500 mt-2">
+                <div className="animate-spin rounded-full h-12 md:h-16 w-12 md:w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <p className="text-base md:text-lg text-gray-700">Генерация изображения...</p>
+                <p className="text-xs md:text-sm text-gray-500 mt-2">
                   Пробуем ИИ генерацию...
                 </p>
               </div>
@@ -251,18 +246,18 @@ export default function ArtSlide() {
           )}
 
           {!generating && generatedImage && (
-            <div className="bg-white p-4 rounded-xl border-2 border-gray-200">
+            <div className="bg-white p-3 md:p-4 rounded-xl border-2 border-gray-200">
               {provider && (
-                <div className="mb-2 text-sm text-gray-600">
+                <div className="mb-2 text-xs md:text-sm text-gray-600">
                   <span className="font-semibold">Источник:</span> {provider}
                 </div>
               )}
               <img 
                 src={generatedImage} 
                 alt="Сгенерированное изображение" 
-                className="w-full rounded-lg mb-4"
+                className="w-full rounded-lg mb-3 md:mb-4"
               />
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <button
                   onClick={() => {
                     const link = document.createElement('a')
@@ -270,14 +265,14 @@ export default function ArtSlide() {
                     link.download = 'my_house_1970s.png'
                     link.click()
                   }}
-                  className="flex-1 bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors"
+                  className="flex-1 bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors text-sm md:text-base"
                 >
                   📥 Скачать изображение
                 </button>
                 {isPlaceholder && (
                   <button
                     onClick={generateImage}
-                    className="flex-1 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
+                    className="flex-1 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-sm md:text-base"
                   >
                     🔄 Попробовать ИИ снова
                   </button>
@@ -287,36 +282,36 @@ export default function ArtSlide() {
           )}
 
           {!generating && !generatedImage && prompt && (
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-xl border-4 border-amber-200 min-h-[400px]">
-              <div className="space-y-4 text-lg mb-6">
-                <div className="bg-white/80 p-4 rounded-lg">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-4 md:p-8 rounded-xl border-4 border-amber-200 min-h-[300px] md:min-h-[400px]">
+              <div className="space-y-2 md:space-y-4 text-sm md:text-lg mb-4 md:mb-6">
+                <div className="bg-white/80 p-2 md:p-4 rounded-lg">
                   <span className="font-semibold text-amber-800">Мебель:</span> {furniture}
                 </div>
-                <div className="bg-white/80 p-4 rounded-lg">
+                <div className="bg-white/80 p-2 md:p-4 rounded-lg">
                   <span className="font-semibold text-purple-800">Декор:</span> {decor}
                 </div>
-                <div className="bg-white/80 p-4 rounded-lg">
+                <div className="bg-white/80 p-2 md:p-4 rounded-lg">
                   <span className="font-semibold text-green-800">Техника:</span> {tech}
                 </div>
-                <div className="bg-white/80 p-4 rounded-lg">
+                <div className="bg-white/80 p-2 md:p-4 rounded-lg">
                   <span className="font-semibold text-orange-800">Одежда:</span> {clothes}
                 </div>
               </div>
               
-              <div className="bg-white p-4 rounded-lg border-2 border-blue-300">
-                <h4 className="font-bold text-gray-800 mb-2">Промпт для ИИ:</h4>
+              <div className="bg-white p-3 md:p-4 rounded-lg border-2 border-blue-300">
+                <h4 className="font-bold text-gray-800 mb-2 text-sm md:text-base">Промпт для ИИ:</h4>
                 <textarea
                   value={prompt}
                   readOnly
-                  className="w-full p-3 border border-gray-300 rounded-lg text-sm text-gray-700 mb-3 h-32"
+                  className="w-full p-2 md:p-3 border border-gray-300 rounded-lg text-xs md:text-sm text-gray-700 mb-2 md:mb-3 h-24 md:h-32"
                 />
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <button
                     onClick={() => {
                       navigator.clipboard.writeText(prompt)
                       alert('Промпт скопирован!')
                     }}
-                    className="flex-1 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-sm"
+                    className="flex-1 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-xs md:text-sm"
                   >
                     📋 Копировать промпт
                   </button>
@@ -324,7 +319,7 @@ export default function ArtSlide() {
                     href={`https://huggingface.co/spaces/stabilityai/stable-diffusion`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-purple-500 text-white py-2 rounded-lg font-semibold hover:bg-purple-600 transition-colors text-sm text-center flex items-center justify-center"
+                    className="flex-1 bg-purple-500 text-white py-2 rounded-lg font-semibold hover:bg-purple-600 transition-colors text-xs md:text-sm text-center flex items-center justify-center"
                   >
                     🆓 Hugging Face
                   </a>
@@ -334,8 +329,8 @@ export default function ArtSlide() {
           )}
 
           {!generating && !generatedImage && !prompt && (
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-xl border-4 border-amber-200 min-h-[400px] flex items-center justify-center">
-              <p className="text-gray-600 text-center">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 md:p-8 rounded-xl border-4 border-amber-200 min-h-[300px] md:min-h-[400px] flex items-center justify-center">
+              <p className="text-gray-600 text-center text-sm md:text-base">
                 Выберите элементы и нажмите "Создать изображение"
               </p>
             </div>
@@ -343,13 +338,13 @@ export default function ArtSlide() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
-          <h4 className="text-xl font-bold text-blue-800 mb-4">📝 Описание элементов 1970-х</h4>
-          <div className="space-y-4 text-gray-700">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className="bg-blue-50 p-4 md:p-6 rounded-xl border-l-4 border-blue-500">
+          <h4 className="text-lg md:text-xl font-bold text-blue-800 mb-3 md:mb-4">📝 Описание элементов 1970-х</h4>
+          <div className="space-y-3 md:space-y-4 text-sm md:text-gray-700">
             <div>
               <strong className="text-blue-700">Интерьер:</strong>
-              <ul className="list-disc list-inside mt-2 space-y-1">
+              <ul className="list-disc list-inside mt-1 md:mt-2 space-y-1 text-xs md:text-sm">
                 <li>Мебель: массивная, из натурального дерева или ДСП</li>
                 <li>Цвета: коричневый, оранжевый, зелёный, бежевый</li>
                 <li>Ковры на стенах и полу</li>
@@ -358,7 +353,7 @@ export default function ArtSlide() {
             </div>
             <div>
               <strong className="text-blue-700">Одежда:</strong>
-              <ul className="list-disc list-inside mt-2 space-y-1">
+              <ul className="list-disc list-inside mt-1 md:mt-2 space-y-1 text-xs md:text-sm">
                 <li>Яркие цвета и принты</li>
                 <li>Широкие брюки-клёш</li>
                 <li>Платья с цветочными узорами</li>
@@ -368,13 +363,13 @@ export default function ArtSlide() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-amber-100 to-orange-100 p-6 rounded-xl">
-          <h4 className="text-xl font-bold text-gray-800 mb-3">🎨 Цветовая палитра эпохи 1970-х</h4>
-          <div className="flex gap-4 flex-wrap">
+        <div className="bg-gradient-to-r from-amber-100 to-orange-100 p-4 md:p-6 rounded-xl">
+          <h4 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">🎨 Цветовая палитра эпохи 1970-х</h4>
+          <div className="flex gap-2 md:gap-4 flex-wrap">
             {['#8B4513', '#FF8C00', '#228B22', '#F5DEB3', '#CD853F', '#FF6347'].map((color) => (
               <div
                 key={color}
-                className="w-16 h-16 rounded-lg shadow-md"
+                className="w-12 h-12 md:w-16 md:h-16 rounded-lg shadow-md"
                 style={{ backgroundColor: color }}
                 title={color}
               />

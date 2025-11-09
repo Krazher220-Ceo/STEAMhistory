@@ -6,6 +6,35 @@ import * as fs from 'fs'
 
 const execAsync = promisify(exec)
 
+// Готовые изображения интерьеров (5 вариантов)
+const READY_IMAGES = [
+  '/images/interiors/interior_1_classic.png',
+  '/images/interiors/interior_2_festive.png',
+  '/images/interiors/interior_3_evening.png',
+  '/images/interiors/interior_4_daylight.png',
+  '/images/interiors/interior_5_traditional.png',
+]
+
+// Функция для получения готового изображения
+function getReadyImage(): string | null {
+  // Проверяем, существует ли папка с изображениями
+  const imagesDir = path.join(process.cwd(), 'public', 'images', 'interiors')
+  
+  if (!fs.existsSync(imagesDir)) {
+    return null
+  }
+
+  // Пробуем найти любое доступное изображение
+  for (const imagePath of READY_IMAGES) {
+    const fullPath = path.join(process.cwd(), 'public', imagePath)
+    if (fs.existsSync(fullPath)) {
+      return imagePath
+    }
+  }
+
+  return null
+}
+
 // Функция для генерации SVG изображения-заглушки на основе параметров
 function generatePlaceholderImage(furniture: string, decor: string, tech: string, clothes: string): string {
   const colors = {
@@ -144,44 +173,6 @@ async function generateWithHuggingFace(prompt: string) {
   }
 }
 
-// Функция для генерации через Replicate (бесплатный tier)
-async function generateWithReplicate(prompt: string) {
-  const REPLICATE_API_TOKEN = process.env.REPLICATE_API_TOKEN || ''
-  
-  if (!REPLICATE_API_TOKEN) {
-    return { success: false, error: 'Replicate API токен не настроен' }
-  }
-
-  try {
-    const response = await fetch('https://api.replicate.com/v1/predictions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Token ${REPLICATE_API_TOKEN}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        version: 'db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf',
-        input: {
-          prompt: prompt,
-          width: 512,
-          height: 512,
-        }
-      }),
-    })
-
-    if (response.ok) {
-      const data = await response.json()
-      // Replicate возвращает URL для проверки статуса, нужно опрашивать
-      // Для упрощения возвращаем ошибку, чтобы использовать fallback
-      return { success: false, error: 'Replicate требует асинхронной обработки' }
-    }
-    
-    return { success: false }
-  } catch (error) {
-    return { success: false }
-  }
-}
-
 // Функция для генерации через OpenAI DALL-E (платно)
 async function generateWithOpenAI(prompt: string) {
   const OPENAI_API_KEY = process.env.OPENAI_API_KEY
@@ -232,7 +223,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Промпт не предоставлен' }, { status: 400 })
     }
 
-    // Приоритет: локальная генерация → Hugging Face → OpenAI → Placeholder
+    // Приоритет: локальная генерация → Hugging Face → OpenAI → Готовые изображения → Placeholder
     const methods = [
       { name: 'local', fn: () => generateWithLocalSD(prompt) },
       { name: 'huggingface', fn: () => generateWithHuggingFace(prompt) },
@@ -255,7 +246,19 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Если все методы не сработали, возвращаем placeholder изображение
+    // Если все методы не сработали, пробуем готовые изображения
+    const readyImage = getReadyImage()
+    if (readyImage) {
+      return NextResponse.json({
+        imageUrl: readyImage,
+        prompt,
+        provider: 'Готовое изображение',
+        isPlaceholder: false,
+        message: 'Использовано готовое изображение интерьера.'
+      })
+    }
+
+    // Если готовых изображений нет, возвращаем placeholder
     if (furniture && decor && tech && clothes) {
       const placeholderImage = generatePlaceholderImage(furniture, decor, tech, clothes)
       return NextResponse.json({
@@ -274,6 +277,7 @@ export async function POST(request: NextRequest) {
       instructions: {
         local: 'Установите зависимости: cd scripts && pip install -r requirements.txt',
         online: 'Проверьте подключение к интернету для онлайн генерации',
+        readyImages: 'Поместите готовые изображения в public/images/interiors/',
         placeholder: 'Выберите элементы интерьера для генерации placeholder изображения'
       }
     })
