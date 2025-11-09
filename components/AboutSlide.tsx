@@ -1,6 +1,58 @@
 'use client'
 
 export default function AboutSlide() {
+  const schedule = [
+    {
+      time: '08:00 - 08:40',
+      subject: 'Химия',
+      teacher: 'Юлия Николаевна Шебелист',
+      room: '41 - Химия',
+      description: 'Степень окисления. Окисление и восстановление'
+    },
+    {
+      time: '08:45 - 09:25',
+      subject: 'История Казахстана',
+      teacher: 'Анна Владимировна Козыбаева',
+      room: '18 - История',
+      description: 'Социально-экономическое развитие Казахстана в 1965-1985 гг.'
+    },
+    {
+      time: '09:40 - 10:20',
+      subject: 'Русская литература',
+      teacher: 'Екатерина Васильевна Мекебаева',
+      room: '15 - Кабинет 15',
+      description: 'Тема маленького человека в литературе.'
+    },
+    {
+      time: '10:35 - 11:15',
+      subject: 'Алгебра',
+      teacher: 'Анастасия Анатольевна Титова',
+      room: '22 - Русский язык и литература',
+      description: 'Числовая последовательность, способы ее задания и свойства'
+    },
+    {
+      time: '11:20 - 12:00',
+      subject: 'Физическая культура',
+      teacher: 'Александр Геннадьевич Минко',
+      room: '43 - Спортивный зал',
+      description: 'ОБЖ №5 - Безопасность и защита человека. Основные виды мошенничества. Техника безопасности. Строевые упражнения в группах.'
+    },
+    {
+      time: '12:05 - 12:45',
+      subject: 'Иностранный язык (английский язык)',
+      teacher: 'Елена Игоревна Балабай',
+      room: '25 - Английский язык',
+      description: 'Планета и Земля наше место на ней'
+    },
+    {
+      time: '12:50 - 13:30',
+      subject: 'Казахский язык и литература',
+      teacher: 'Шнар Амантаевна Балтабаева',
+      room: '33 - Казахский язык',
+      description: 'Изучение казахского языка и литературы'
+    }
+  ]
+
   return (
     <div className="w-full">
       <div className="border-b-4 border-blue-500 pb-4 md:pb-6 mb-6 md:mb-8">
@@ -16,8 +68,20 @@ export default function AboutSlide() {
             <strong>Класс:</strong> 9 Д
           </p>
           <p className="text-base md:text-lg text-gray-700 mb-4">
-            Ученик, увлеченный историей и технологиями. Создатель проекта 
-            <strong className="text-blue-600"> "Социальная сфера Казахстана (1965-1985)"</strong> 
+            Ученик{' '}
+            <a
+              href="https://mektep1.edu.kz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline font-semibold"
+            >
+              КГУ «Школа-лицей №1 отдела образования города Костаная»
+            </a>{' '}
+            Управления образования акимата Костанайской области
+          </p>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Создатель проекта{' '}
+            <strong className="text-blue-600">"Социальная сфера Казахстана (1965-1985)"</strong>{' '}
             в рамках компонента STEAM.
           </p>
           <div className="mt-6">
@@ -76,6 +140,35 @@ export default function AboutSlide() {
         </ul>
       </div>
 
+      <div className="bg-white p-6 md:p-8 rounded-xl border-2 border-gray-200 shadow-lg mb-8">
+        <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-6">📅 Расписание уроков (9 Д)</h3>
+        <div className="space-y-4">
+          {schedule.map((lesson, index) => (
+            <div
+              key={index}
+              className="border-l-4 border-blue-500 bg-blue-50 p-4 rounded-r-lg hover:shadow-md transition-shadow"
+            >
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl font-bold text-blue-600">{index + 1}</span>
+                  <div>
+                    <h4 className="font-bold text-gray-800 text-base md:text-lg">{lesson.subject}</h4>
+                    <p className="text-sm text-gray-600">{lesson.teacher}</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-sm md:text-base font-semibold text-gray-700">{lesson.time}</p>
+                  <p className="text-xs md:text-sm text-gray-500">{lesson.room}</p>
+                </div>
+              </div>
+              <p className="text-sm md:text-base text-gray-700 mt-2 pl-7 md:pl-10">
+                {lesson.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         <div className="bg-blue-100 p-4 md:p-6 rounded-xl text-center">
           <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">119</div>
@@ -116,4 +209,3 @@ export default function AboutSlide() {
     </div>
   )
 }
-
