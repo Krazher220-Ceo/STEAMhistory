@@ -7,8 +7,9 @@ import EngineeringSlide from '@/components/EngineeringSlide'
 import ArtSlide from '@/components/ArtSlide'
 import MathematicsSlide from '@/components/MathematicsSlide'
 import AboutSlide from '@/components/AboutSlide'
+import WorksheetSlide from '@/components/WorksheetSlide'
 
-type Slide = 'title' | 'science' | 'technology' | 'engineering' | 'art' | 'mathematics' | 'about'
+type Slide = 'title' | 'science' | 'technology' | 'engineering' | 'art' | 'mathematics' | 'about' | 'worksheet'
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState<Slide>('title')
@@ -68,6 +69,12 @@ export default function Home() {
               className="bg-white/20 text-white border-2 border-white px-4 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-sm md:text-lg hover:bg-white/30 transition-all duration-300"
             >
               👤 Об авторе
+            </button>
+            <button
+              onClick={() => showSlide('worksheet')}
+              className="bg-white/20 text-white border-2 border-white px-4 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-sm md:text-lg hover:bg-white/30 transition-all duration-300"
+            >
+              📋 Рабочий лист
             </button>
           </div>
         </div>
@@ -148,6 +155,16 @@ export default function Home() {
             >
               Об авторе
             </button>
+            <button
+              onClick={() => showSlide('worksheet')}
+              className={`px-2 md:px-4 py-1 md:py-2 rounded-lg font-medium transition-all text-xs md:text-sm ${
+                currentSlide === 'worksheet' 
+                  ? 'bg-blue-500 text-white' 
+                  : 'bg-white text-blue-600 hover:bg-blue-50'
+              }`}
+            >
+              Рабочий лист
+            </button>
           </div>
         </nav>
 
@@ -159,6 +176,7 @@ export default function Home() {
           {currentSlide === 'art' && <ArtSlide />}
           {currentSlide === 'mathematics' && <MathematicsSlide />}
           {currentSlide === 'about' && <AboutSlide />}
+          {currentSlide === 'worksheet' && <WorksheetSlide />}
         </div>
       </div>
     </div>

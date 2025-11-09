@@ -15,7 +15,7 @@ const READY_IMAGES = [
   '/images/interiors/interior_5_traditional.png',
 ]
 
-// Функция для получения готового изображения
+// Функция для получения случайного готового изображения
 function getReadyImage(): string | null {
   // Проверяем, существует ли папка с изображениями
   const imagesDir = path.join(process.cwd(), 'public', 'images', 'interiors')
@@ -24,15 +24,22 @@ function getReadyImage(): string | null {
     return null
   }
 
-  // Пробуем найти любое доступное изображение
+  // Собираем все доступные изображения
+  const availableImages: string[] = []
   for (const imagePath of READY_IMAGES) {
     const fullPath = path.join(process.cwd(), 'public', imagePath)
     if (fs.existsSync(fullPath)) {
-      return imagePath
+      availableImages.push(imagePath)
     }
   }
 
-  return null
+  if (availableImages.length === 0) {
+    return null
+  }
+
+  // Возвращаем случайное изображение
+  const randomIndex = Math.floor(Math.random() * availableImages.length)
+  return availableImages[randomIndex]
 }
 
 // Функция для генерации SVG изображения-заглушки на основе параметров
