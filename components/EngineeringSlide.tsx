@@ -11,11 +11,11 @@ const zoneData = [
   { name: 'Административная', value: 10, color: '#8b5cf6' },
 ]
 
-// Фиксированные высоты для домов (чтобы не менялись при каждом рендере)
+// Фиксированные высоты для домов
 const residentialHeights = [90, 100, 85, 95, 110, 88]
 
 export default function EngineeringSlide() {
-  const [rotation, setRotation] = useState({ x: -20, y: 45 })
+  const [rotation, setRotation] = useState({ x: -25, y: 45 })
   const [isDragging, setIsDragging] = useState(false)
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 })
 
@@ -52,12 +52,12 @@ export default function EngineeringSlide() {
     setLastMousePos({ x: e.clientX, y: e.clientY })
   }
 
-  // Мемоизируем позиции элементов для стабильности
+  // Мемоизируем позиции элементов
   const cityElements = useMemo(() => {
     // Жилая зона - позиции домов
     const residential = [...Array(6)].map((_, i) => {
       const angle = (i / 6) * Math.PI * 2
-      const radius = 150
+      const radius = 140
       return {
         x: Math.cos(angle) * radius,
         z: Math.sin(angle) * radius,
@@ -68,7 +68,7 @@ export default function EngineeringSlide() {
     // Промышленная зона
     const industrial = [...Array(3)].map((_, i) => {
       const angle = (i / 3) * Math.PI * 2 + Math.PI
-      const radius = 200
+      const radius = 180
       return {
         x: Math.cos(angle) * radius,
         z: Math.sin(angle) * radius
@@ -78,7 +78,7 @@ export default function EngineeringSlide() {
     // Рекреационная зона
     const parks = [...Array(4)].map((_, i) => {
       const angle = (i / 4) * Math.PI * 2 + Math.PI / 4
-      const radius = 120
+      const radius = 110
       return {
         x: Math.cos(angle) * radius,
         z: Math.sin(angle) * radius
@@ -87,6 +87,9 @@ export default function EngineeringSlide() {
 
     return { residential, industrial, parks }
   }, [])
+
+  // Высота земли (все элементы должны быть выше этого значения)
+  const groundLevel = 0
 
   return (
     <div>
@@ -109,16 +112,20 @@ export default function EngineeringSlide() {
           🏗️ 3D Визуализация "Город будущего 1985"
         </h3>
         <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-4 md:p-8 rounded-xl border-2 border-gray-300 mb-4">
-          <div className="relative w-full h-[400px] md:h-[600px]" style={{ perspective: '1000px', perspectiveOrigin: 'center center' }}>
+          <div className="relative w-full h-[400px] md:h-[600px]" style={{ perspective: '1200px', perspectiveOrigin: 'center center', overflow: 'hidden' }}>
             <div
-              className="absolute inset-0"
+              className="absolute"
               style={{
+                width: '100%',
+                height: '100%',
                 transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
                 transformStyle: 'preserve-3d',
                 transition: isDragging ? 'none' : 'transform 0.1s ease-out',
                 cursor: isDragging ? 'grabbing' : 'grab',
-                width: '100%',
-                height: '100%'
+                left: '50%',
+                top: '50%',
+                marginLeft: '-50%',
+                marginTop: '-50%'
               }}
               onMouseDown={handleMouseDown}
             >
@@ -126,10 +133,10 @@ export default function EngineeringSlide() {
               <div
                 className="absolute"
                 style={{
-                  width: '600px',
-                  height: '600px',
+                  width: '500px',
+                  height: '500px',
                   background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                  transform: 'translate(-50%, -50%) translateZ(-200px) rotateX(90deg)',
+                  transform: `translate(-50%, -50%) translateZ(${groundLevel}px) rotateX(90deg)`,
                   left: '50%',
                   top: '50%',
                   borderRadius: '20px',
@@ -138,38 +145,39 @@ export default function EngineeringSlide() {
                 }}
               />
 
-              {/* Транспортная зона - Дороги (сначала, чтобы были под зданиями) */}
+              {/* Транспортная зона - Дороги (на уровне земли) */}
               {[
-                { angle: 0, length: 400 },
-                { angle: Math.PI / 2, length: 400 }
+                { angle: 0, length: 350 },
+                { angle: Math.PI / 2, length: 350 }
               ].map((road, i) => (
                 <div
                   key={`road-${i}`}
                   className="absolute"
                   style={{
                     width: `${road.length}px`,
-                    height: '30px',
+                    height: '25px',
                     background: 'linear-gradient(90deg, #4b5563 0%, #6b7280 50%, #4b5563 100%)',
-                    transform: `translate(-50%, -50%) translate3d(0, 5px, 0) rotateZ(${road.angle}rad)`,
+                    transform: `translate(-50%, -50%) translate3d(0, ${groundLevel + 2}px, 0) rotateZ(${road.angle}rad)`,
                     left: '50%',
                     top: '50%',
                     borderTop: '2px dashed #fbbf24',
                     borderBottom: '2px dashed #fbbf24',
-                    transformStyle: 'preserve-3d'
+                    transformStyle: 'preserve-3d',
+                    borderRadius: '2px'
                   }}
                 />
               ))}
 
-              {/* Рекреационная зона - Парки */}
+              {/* Рекреационная зона - Парки (на уровне земли) */}
               {cityElements.parks.map((park, i) => (
                 <div
                   key={`park-${i}`}
                   className="absolute"
                   style={{
-                    width: '80px',
-                    height: '80px',
+                    width: '70px',
+                    height: '70px',
                     background: 'radial-gradient(circle, #10b981 0%, #059669 100%)',
-                    transform: `translate(-50%, -50%) translate3d(${park.x}px, 5px, ${park.z}px) rotateX(90deg)`,
+                    transform: `translate(-50%, -50%) translate3d(${park.x}px, ${groundLevel + 1}px, ${park.z}px) rotateX(90deg)`,
                     left: '50%',
                     top: '50%',
                     borderRadius: '50%',
@@ -180,7 +188,7 @@ export default function EngineeringSlide() {
                   {/* Деревья */}
                   {[...Array(3)].map((_, j) => {
                     const treeAngle = (j / 3) * Math.PI * 2
-                    const treeRadius = 25
+                    const treeRadius = 20
                     const treeX = Math.cos(treeAngle) * treeRadius
                     const treeZ = Math.sin(treeAngle) * treeRadius
                     return (
@@ -188,10 +196,10 @@ export default function EngineeringSlide() {
                         key={`tree-${j}`}
                         className="absolute"
                         style={{
-                          width: '15px',
-                          height: '25px',
+                          width: '12px',
+                          height: '20px',
                           background: '#166534',
-                          transform: `translate(-50%, -50%) translate3d(${treeX}px, -15px, ${treeZ}px)`,
+                          transform: `translate(-50%, -50%) translate3d(${treeX}px, ${groundLevel - 10}px, ${treeZ}px)`,
                           left: '50%',
                           top: '50%',
                           borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
@@ -209,26 +217,26 @@ export default function EngineeringSlide() {
                   key={`residential-${i}`}
                   className="absolute"
                   style={{
-                    width: '40px',
+                    width: '35px',
                     height: `${house.height}px`,
                     background: 'linear-gradient(180deg, #3b82f6 0%, #2563eb 100%)',
-                    transform: `translate(-50%, -50%) translate3d(${house.x}px, -${house.height/2}px, ${house.z}px)`,
+                    transform: `translate(-50%, -50%) translate3d(${house.x}px, ${groundLevel - house.height/2}px, ${house.z}px)`,
                     left: '50%',
                     top: '50%',
                     boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                    borderRadius: '4px 4px 0 0',
+                    borderRadius: '3px 3px 0 0',
                     transformStyle: 'preserve-3d'
                   }}
                 >
                   {/* Окна */}
-                  {[...Array(Math.floor(house.height / 20))].map((_, j) => (
+                  {[...Array(Math.floor(house.height / 18))].map((_, j) => (
                     <div
                       key={`window-${j}`}
-                      className="absolute w-3 h-3 bg-yellow-300 rounded-sm"
+                      className="absolute w-2.5 h-2.5 bg-yellow-300 rounded-sm"
                       style={{
-                        left: '6px',
-                        top: `${10 + j * 20}px`,
-                        boxShadow: '0 0 5px rgba(255,255,0,0.5)'
+                        left: '5px',
+                        top: `${8 + j * 18}px`,
+                        boxShadow: '0 0 4px rgba(255,255,0,0.5)'
                       }}
                     />
                   ))}
@@ -241,23 +249,23 @@ export default function EngineeringSlide() {
                   key={`industrial-${i}`}
                   className="absolute"
                   style={{
-                    width: '60px',
-                    height: '100px',
+                    width: '50px',
+                    height: '90px',
                     background: 'linear-gradient(180deg, #ef4444 0%, #dc2626 100%)',
-                    transform: `translate(-50%, -50%) translate3d(${factory.x}px, -50px, ${factory.z}px)`,
+                    transform: `translate(-50%, -50%) translate3d(${factory.x}px, ${groundLevel - 45}px, ${factory.z}px)`,
                     left: '50%',
                     top: '50%',
                     boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                    borderRadius: '4px 4px 0 0',
+                    borderRadius: '3px 3px 0 0',
                     transformStyle: 'preserve-3d'
                   }}
                 >
                   {/* Трубы */}
                   <div
-                    className="absolute w-4 h-20 bg-gray-600 rounded-full"
+                    className="absolute w-3 h-18 bg-gray-600 rounded-full"
                     style={{
                       left: '50%',
-                      top: '-20px',
+                      top: '-18px',
                       transform: 'translateX(-50%)',
                       transformStyle: 'preserve-3d'
                     }}
@@ -269,14 +277,14 @@ export default function EngineeringSlide() {
               <div
                 className="absolute"
                 style={{
-                  width: '80px',
-                  height: '120px',
+                  width: '70px',
+                  height: '110px',
                   background: 'linear-gradient(180deg, #8b5cf6 0%, #7c3aed 100%)',
-                  transform: 'translate(-50%, -50%) translate3d(0, -60px, 0)',
+                  transform: `translate(-50%, -50%) translate3d(0, ${groundLevel - 55}px, 0)`,
                   left: '50%',
                   top: '50%',
                   boxShadow: '0 15px 40px rgba(0,0,0,0.4)',
-                  borderRadius: '8px 8px 0 0',
+                  borderRadius: '6px 6px 0 0',
                   transformStyle: 'preserve-3d',
                   zIndex: 10
                 }}
@@ -285,11 +293,11 @@ export default function EngineeringSlide() {
                 {[...Array(4)].map((_, i) => (
                   <div
                     key={`column-${i}`}
-                    className="absolute w-2 h-20 bg-purple-700"
+                    className="absolute w-1.5 h-18 bg-purple-700"
                     style={{
-                      left: `${10 + i * 20}px`,
+                      left: `${8 + i * 18}px`,
                       bottom: '0',
-                      borderRadius: '2px 2px 0 0'
+                      borderRadius: '1px 1px 0 0'
                     }}
                   />
                 ))}
@@ -301,22 +309,22 @@ export default function EngineeringSlide() {
                   key={`bus-${i}`}
                   className="absolute"
                   style={{
-                    width: '30px',
-                    height: '15px',
+                    width: '25px',
+                    height: '12px',
                     background: '#f59e0b',
-                    transform: `translate(-50%, -50%) translate3d(${i * 100 - 50}px, 8px, 0)`,
+                    transform: `translate(-50%, -50%) translate3d(${i * 80 - 40}px, ${groundLevel + 5}px, 0)`,
                     left: '50%',
                     top: '50%',
-                    borderRadius: '4px',
+                    borderRadius: '3px',
                     transformStyle: 'preserve-3d',
-                    animation: `moveBus${i} 4s linear infinite`
+                    animation: `moveBus${i} 5s linear infinite`
                   }}
                 >
                   <style>{`
                     @keyframes moveBus${i} {
-                      0% { transform: translate(-50%, -50%) translate3d(${i * 100 - 50}px, 8px, 0); }
-                      50% { transform: translate(-50%, -50%) translate3d(${i * 100 + 50}px, 8px, 0); }
-                      100% { transform: translate(-50%, -50%) translate3d(${i * 100 - 50}px, 8px, 0); }
+                      0% { transform: translate(-50%, -50%) translate3d(${i * 80 - 40}px, ${groundLevel + 5}px, 0); }
+                      50% { transform: translate(-50%, -50%) translate3d(${i * 80 + 40}px, ${groundLevel + 5}px, 0); }
+                      100% { transform: translate(-50%, -50%) translate3d(${i * 80 - 40}px, ${groundLevel + 5}px, 0); }
                     }
                   `}</style>
                 </div>
