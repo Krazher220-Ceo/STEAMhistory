@@ -8,7 +8,6 @@ import ArtSlide from '@/components/ArtSlide'
 import MathematicsSlide from '@/components/MathematicsSlide'
 import AboutSlide from '@/components/AboutSlide'
 import WorksheetSlide from '@/components/WorksheetSlide'
-import { generateDocumentationPDF } from '@/utils/generateDocumentation'
 
 type Slide = 'title' | 'science' | 'technology' | 'engineering' | 'art' | 'mathematics' | 'about' | 'worksheet'
 
@@ -76,19 +75,6 @@ export default function Home() {
               className="bg-white/20 text-white border-2 border-white px-4 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-sm md:text-lg hover:bg-white/30 transition-all duration-300"
             >
               📋 Рабочий лист
-            </button>
-            <button
-              onClick={async () => {
-                try {
-                  await generateDocumentationPDF()
-                } catch (error) {
-                  console.error('Ошибка генерации документации:', error)
-                  alert('Ошибка при создании документации. Попробуйте позже.')
-                }
-              }}
-              className="bg-green-500 text-white border-2 border-green-400 px-4 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-sm md:text-lg hover:bg-green-600 transition-all duration-300 shadow-lg"
-            >
-              📥 Скачать документацию
             </button>
           </div>
         </div>
@@ -178,19 +164,6 @@ export default function Home() {
               }`}
             >
               Рабочий лист
-            </button>
-            <button
-              onClick={async () => {
-                try {
-                  await generateDocumentationPDF()
-                } catch (error) {
-                  console.error('Ошибка генерации документации:', error)
-                  alert('Ошибка при создании документации. Попробуйте позже.')
-                }
-              }}
-              className="px-2 md:px-4 py-1 md:py-2 rounded-lg font-medium transition-all text-xs md:text-sm bg-green-500 text-white hover:bg-green-600"
-            >
-              📥 Документация
             </button>
           </div>
         </nav>
