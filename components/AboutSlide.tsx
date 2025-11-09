@@ -4,11 +4,17 @@ import { useState, useEffect } from 'react'
 
 export default function AboutSlide() {
   const [currentLesson, setCurrentLesson] = useState<{ subject: string; teacher: string } | null>(null)
+  const [currentTime, setCurrentTime] = useState<string>('')
 
   useEffect(() => {
     const getCurrentLesson = () => {
       const now = new Date()
-      const currentTime = now.getHours() * 60 + now.getMinutes() // время в минутах
+      const hours = now.getHours()
+      const minutes = now.getMinutes()
+      const currentTime = hours * 60 + minutes // время в минутах
+
+      // Обновляем отображаемое время
+      setCurrentTime(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`)
 
       const schedule = [
         { start: 8 * 60, end: 8 * 60 + 40, subject: 'Химия', teacher: 'Юлия Николаевна Шебелист' },
@@ -63,17 +69,29 @@ export default function AboutSlide() {
             </a>{' '}
             Управления образования акимата Костанайской области
           </p>
-          {currentLesson && (
-            <div className="bg-white p-4 rounded-lg border-2 border-blue-300 mb-4">
-              <p className="text-sm text-gray-600 mb-1">Урок:</p>
-              <p className="text-base md:text-lg font-semibold text-gray-800">
-                {currentLesson.subject}
-              </p>
-              <p className="text-sm md:text-base text-gray-600 mt-1">
-                {currentLesson.teacher}
-              </p>
-            </div>
-          )}
+          <div className="bg-white p-4 rounded-lg border-2 border-blue-300 mb-4">
+            {currentLesson ? (
+              <>
+                <p className="text-sm text-gray-600 mb-1">Урок:</p>
+                <p className="text-base md:text-lg font-semibold text-gray-800">
+                  {currentLesson.subject}
+                </p>
+                <p className="text-sm md:text-base text-gray-600 mt-1">
+                  {currentLesson.teacher}
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="text-sm text-gray-600 mb-1">Урок:</p>
+                <p className="text-base md:text-lg font-semibold text-gray-800">
+                  Нет урока
+                </p>
+                <p className="text-sm md:text-base text-gray-600 mt-1">
+                  Время: {currentTime || '--:--'}
+                </p>
+              </>
+            )}
+          </div>
           <div className="mt-6">
             <a
               href="https://github.com/Krazher220-Ceo/STEAMhistory"
