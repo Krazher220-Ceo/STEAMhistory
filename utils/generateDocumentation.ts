@@ -43,7 +43,7 @@ export async function generateDocumentationPDF() {
   doc.text('Максимальный балл: 46', pageWidth / 2, 115, { align: 'center' })
   
   doc.setFontSize(14)
-  doc.text('Автор: Кабдуалы Алихан, 9 Д', pageWidth / 2, 140, { align: 'center' })
+  doc.text('Автор: krazher220, 9 Д', pageWidth / 2, 140, { align: 'center' })
   doc.text('КГУ «Школа-лицей №1 отдела образования города Костаная»', pageWidth / 2, 155, { align: 'center' })
   doc.text('Управления образования акимата Костанайской области', pageWidth / 2, 165, { align: 'center' })
   
@@ -365,7 +365,7 @@ export async function generateDocumentationPDF() {
 
   doc.setFontSize(14)
   doc.setFont('helvetica', 'normal')
-  doc.text('Кабдуалы Алихан', margin, yPosition)
+  doc.text('krazher220', margin, yPosition)
   yPosition += 10
 
   doc.setFontSize(12)

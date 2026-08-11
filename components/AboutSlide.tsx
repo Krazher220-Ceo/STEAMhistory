@@ -53,7 +53,7 @@ export default function AboutSlide() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8">
         <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 md:p-8 rounded-xl border-2 border-blue-200">
-          <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">Кабдуалы Алихан</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">krazher220</h3>
           <p className="text-base md:text-lg text-gray-700 mb-4">
             <strong>Класс:</strong> 9 Д
           </p>

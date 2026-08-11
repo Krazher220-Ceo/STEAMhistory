@@ -23,7 +23,7 @@ export default function RootLayout({
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium"
             >
-              Сделано Кабдуалы Алихан 9 Д
+              Сделано krazher220 9 Д
             </a>
           </div>
         </footer>

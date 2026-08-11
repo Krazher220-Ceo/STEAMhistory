@@ -93,7 +93,7 @@ pip install -r requirements.txt
 
 ## 👤 Автор
 
-**Кабдуалы Алихан 9 Д**
+**krazher220 9 Д**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=flat-square&logo=github)](https://github.com/Krazher220-Ceo/STEAMhistory)
 
@@ -103,7 +103,7 @@ pip install -r requirements.txt
 
 Этот проект лицензирован под [MIT License](LICENSE).
 
-Copyright (c) 2025 Кабдуалы Алихан
+Copyright (c) 2025 krazher220
 
 ---
 
